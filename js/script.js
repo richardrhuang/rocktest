@@ -134,7 +134,7 @@ monogatari.script ({
 		"centered It's strange, isn't it?",
 		"centered The universe began from but a mote of matter. . .",
 		"centered I mean, what are the chances we are even here?",
-		'show particles universe',
+		
 		"centered Millions", 
 		"centered then billions", 
 		"centered then trillions", 
@@ -142,7 +142,7 @@ monogatari.script ({
 		"centered A cesspool of unformed matter, waiting to be molded",
 		"centered And under a tremendous amount of force and pressure. . .",
 		'show scene #ffffff with fadeIn',
-		'end particles',
+		
 		"centered The Universe was born",
 		"centered ...",
 		//delete later
@@ -175,18 +175,18 @@ monogatari.script ({
 		"I'm stuck between a rock and a hard place",
 		"This place is so big. . . and there are so many people",
 		"I wonder if I'll make any friends",
-		"And according to the email the principal sent me, the guide should be here-",
+		"And according to the email the principal sent me, the guide should've been here 10 minutes ago. . .",
 		
 
 		//this line is just for fun but change aftrerwards
 		
 		
-		'jump taliaRoute',
+		'jump thaliaRoute',
 	],
 
-	'taliaRoute' :[
-		"RATS RATS WHERE ARE THE RATS?",
-		"I NEED SOME RAT HEADS TO BASH BASH BASH",
+	'thaliaRoute' :[
+		"RATS RATS WHERE ARE THE RATS",
+		"CELEBRATING YET ANOTHER RODENT HEAD BASH",
 	],
 	'galaRoute': [
 
@@ -199,8 +199,20 @@ monogatari.script ({
 	],
 	'end': [
 		"And so time flew by, seemingly without a trace. Before I knew it, we had walked across the stage and received our diplomas.",
-		"My time at Shiwa Academy had come to a close"
+		"My time at Shiwa Academy had come to a close",
 
+
+
+
+
+		'show scene #000000 with fadeIn',
+		"...",
+		"Weary traveler behind the screen, you must be tired, right?",
+		"I know you have been searching for answers too this entire time.",
+		"Or is it just one answer?",
+		"Regardless, you have done well.",
+		"You're probably wondering where the answer is.",
+		"We"
 	]
 		
 
