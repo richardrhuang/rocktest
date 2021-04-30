@@ -45,7 +45,8 @@ button:hover {
 
 /* Main Menu Styling */
 [data-screen="main"] {
-
+	background-image: url("../assets/ui/gemwithinmainmenu.jpg");
+	
 }
 
 /* Main Menu Buttons Styling */

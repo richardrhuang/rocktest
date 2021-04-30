@@ -23,7 +23,7 @@ monogatari.action ('notification').notifications ({
 
 // Define the Particles JS Configurations used in the game
 monogatari.action ('particles').particles ({
-
+	
 });
 
 // Define the canvas objects used in the game
@@ -73,22 +73,22 @@ monogatari.assets ('videos', {
 
 // Define the images used in the game.
 monogatari.assets ('images', {
-
+	'schoolcourt1':'school1.jpg',
 });
 
 // Define the backgrounds for each scene.
 monogatari.assets ('scenes', {
 'intro': 'introbkg1.jpg',
 'schoolcourt':'school1.jpg',
-'atschool':'outsideschool.jfif',
+'atschool':'schoolbkg.jpg',
 });
 
 
 // Define the Characters
 monogatari.characters ({
 	'p': {
-		name: 'Player',
-		color: '#212121',
+		name: '{{player.name}}',
+		color: '#FFFF00',
 		directory: "",
 		default_expression: "",
 	},
@@ -106,7 +106,7 @@ monogatari.characters ({
 	},
 	'b':{
 		name: 'Bizzie',
-		color: '#fff36b',
+		color: '#f6adc6',
 		directory: "",
 		default_expression: "",
 	},
@@ -125,9 +125,16 @@ monogatari.script ({
 		
 		'show scene #000000 with fadeIn',
 		" ",
+		//delete later
+		"g test",
+		"c test",
+		"b test",
+		"th test",
+		"HAVE YOU EVER WANTED TO FUCK A ROCK? WELL NOW YOU CAN! WELCOME TO ROCK FUCKING SIMULATOR 9000 WHERE WE GIVE YOU THE BEST ROCKS TO FUCK YEE HAW OR ITS YOUR MONEY BACK",
 		"centered It's strange, isn't it?",
 		"centered The universe began from but a mote of matter. . .",
 		"centered I mean, what are the chances we are even here?",
+		'show particles universe',
 		"centered Millions", 
 		"centered then billions", 
 		"centered then trillions", 
@@ -135,8 +142,14 @@ monogatari.script ({
 		"centered A cesspool of unformed matter, waiting to be molded",
 		"centered And under a tremendous amount of force and pressure. . .",
 		'show scene #ffffff with fadeIn',
+		'end particles',
 		"centered The Universe was born",
 		"centered ...",
+		//delete later
+		"g test",
+		"c test",
+		"b test",
+		"th test",
 		"centered Amazing, isn't it?",
 		"centered How so many coincidences can come together and create so many meaningful things",
 		"centered So many things to enjoy",
@@ -149,6 +162,46 @@ monogatari.script ({
 		"centered But, it seems I was born just in time for this.",
 		'show scene atschool with fadeIn',
 		'play music school',
+		"What?",
+		"Was I daydreaming again?",
+		"I can't be doing this on my first day here. . .",
+		"...",
+		"Shiwa Academy, the number one science institution in the world",
+		"Every one of its graduates goes on to become prodigies in their field",
+		"There's not even an application for the school - the school finds and recruits students themselves",
+		"And now, I'm here midway through the school year on a special scholarship",
+		"To be honest? I'm nervous.",
+		"I don't feel like I belong here, but I don't feel like I belong anywhere else",
+		"I'm stuck between a rock and a hard place",
+		"This place is so big. . . and there are so many people",
+		"I wonder if I'll make any friends",
+		"And according to the email the principal sent me, the guide should be here-",
 		
+
+		//this line is just for fun but change aftrerwards
+		
+		
+		'jump taliaRoute',
+	],
+
+	'taliaRoute' :[
+		"RATS RATS WHERE ARE THE RATS?",
+		"I NEED SOME RAT HEADS TO BASH BASH BASH",
+	],
+	'galaRoute': [
+
+	],
+	'bizzieRoute': [
+
+	],
+	'cinnyRoute': [
+
+	],
+	'end': [
+		"And so time flew by, seemingly without a trace. Before I knew it, we had walked across the stage and received our diplomas.",
+		"My time at Shiwa Academy had come to a close"
+
 	]
+		
+
 });
