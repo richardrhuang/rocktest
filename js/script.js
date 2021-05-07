@@ -42,9 +42,7 @@ monogatari.action ('canvas').objects ({
 // Credits of the people involved in the creation of this awesome game
 monogatari.configuration ('credits', {
 	"Developers": {
-		"Writer": "Pogfish Huang",
-		"Character Artist": "Nerd Sanchez",
-		"Technical Consultant/Goon Squad": "Gooner Bloomfield",
+		"Devs": "This project was a join effort of Puzzle Hunt Hq. <3",
 	},
 });
 
@@ -243,21 +241,29 @@ monogatari.script ({
 		'show scene #000000 with fadeIn',
 		{'Choice': {
 			'Developer': {
-				'Text': 'Jump to working part',
-				'Do': 'jump thaliaappears',
+				'Text': 'Jump to gala',
+				'Do': 'jump galaRoute',
 			},
 			'Writer': {
-				'Text': 'I’m a gooner.',
-				'Do': "Fucking gooner",
+				'Text': 'Jump to biz.',
+				'Do': 'jump bizzieRoute',
 			},
 			'Artist': {
-				'Text': 'I’m an nerd.',
-				'Do': "Fucking nerd",
+				'Text': 'jump to cin',
+				'Do': 'jump cinnyRoute',
 			},
 			'Player': {
-				'Text': 'I’m a goonerd.',
-				'Do': "Clobba? Is that you?",
-			}
+				'Text': 'jump to tha',
+				'Do': 'jump thaliaRoute',
+			},
+			'Choice':{
+				'Text': 'jump to choice screen',
+				'Do': 'jump choicescene',
+			},
+			'nothing':{
+				'text':'nothing',
+				'do': "ooga boog",
+				},
 		}},
 		" ",
 		//delete later
@@ -740,30 +746,23 @@ monogatari.script ({
 		],
 
 		
-	//this line is just for fun but change aftrerwards
-		
-	
-	
-
-
 	'choicescene' :[
 
-		'clear',
+		'clear',	
 		"It was the end of a very eventful day. I laid down in my bed exhausted by the amount of things that had happened.",
 		"Oh, right. I pulled out the club packet from my bag and stared at it in the dim light. Despite there being hundreds of options to choose from, my mind naturally wandered towards just four of them.",
 		"Joining their club would be a great opportunity to get to know them better. It felt like I needed to do all four of them eventually before I could move on with my life.",
 		"But in the here and now, I had to make a decision before I went to bed.",
 		"I really want to get closer to...",
 		
-		function () {
-			monogatari.storage().gala = true;
-			monogatari.storage().cinny = true;
-			monogatari.storage().bizzie = true;
-			monogatari.storage().thalia = true;
-		},
+	//	function () {
+	//		monogatari.storage().gala = true;
+	//		monogatari.storage().cinny = true;
+	//		monogatari.storage().bizzie = true;
+	//		monogatari.storage().thalia = true;
+	//	},
 
-		"ooga booga",
-                
+		               
 		{'Choice': {
 			'Gala': {
 				'Text': 'History Club: Gala - Room 210',
@@ -778,7 +777,7 @@ monogatari.script ({
 				'Do': 'jump bizzieRoute',
 			},
 			'Player': {
-				'Text': 'Rat Killing Club: Thalia - ROom 204',
+				'Text': 'Rat Extermination Club: Thalia - Room 204',
 				'Do': 'jump thaliaRoute',
 			},
 			'End':{
@@ -790,31 +789,285 @@ monogatari.script ({
 				}
 			}
 		}},
-
-
-
-
 	],
 
 
-
+//gallllllllllllllla beginsssssss
 	
 	'galaRoute': [
+		'clear',
+		'play music school loop',
+		'show scene hallway with fadeIn',
+		"",
+
+		{'Input': {
+			'Text': 'My name is...',
+			'Validation': (input) => {
+				return input.trim ().length > 0;
+			},
+			'Save': (input) => {
+				monogatari.storage ({ player: { name: input }});
+			},
+			'Revert': () => {
+				monogatari.storage ({ player: { name: '' }});
+			},
+			'Warning': 'You must enter a name!'
+		}},
+
+		{'Conditional': {
+			'Condition': function(){
+				if(monogatari.storage().player.name == 'Carl Axel Arrhenius') {
+					return 'oog';
+				} else 
+					return 'boog'
+
+					
+			},
+			'oog': 'jump galaRouteLove',
+			'boog': 'jump galaRouteReject',
+		}},
+
+
 
 	],
+	'galaRouteReject':[
+
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene'
+
+	],
+	'galaRouteLove':[
+
+		function(){
+			monogatari.storage().gala = true;
+		},
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene'
+
+	],
+
+
+
+
+
+//bizzieeeeeeeeeeee
+
+
+
+
+
 	'bizzieRoute': [
+		'clear',
+		'play music school loop',
+		
+		
+		
+		
+		{'Input': {
+			'Text': 'My name is...',
+			'Validation': (input) => {
+				return input.trim ().length > 0;
+			},
+			'Save': (input) => {
+				monogatari.storage ({ player: { name: input }});
+			},
+			'Revert': () => {
+				monogatari.storage ({ player: { name: '' }});
+			},
+			'Warning': 'You must enter a name!'
+		}},
+
+		{'Conditional': {
+			'Condition': function(){
+				if(monogatari.storage().player.name == 'Victor Goldschmidt') {
+					return 'noog';
+				} else 
+					return 'loog'
+
+					
+			},
+			'noog': 'jump bizzieSayYes',
+			'loog': 'jump bizzieReject',
+		}},
+
+
 
 	],
+
+	'bizzieReject':[
+
+
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene'
+	],
+
+	'bizzieSayYes':[
+
+		function(){
+			monogatari.storage().bizzie = true;
+		},
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene'
+
+
+
+	],
+
+
+
+
+
+
+
+
+
+
+//cinny routeeeee
+
+
 	'cinnyRoute': [
+		'clear',
+		'play music school loop',
+		
+		
+		
+		
+		{'Input': {
+			'Text': 'My name is...',
+			'Validation': (input) => {
+				return input.trim ().length > 0;
+			},
+			'Save': (input) => {
+				monogatari.storage ({ player: { name: input }});
+			},
+			'Revert': () => {
+				monogatari.storage ({ player: { name: '' }});
+			},
+			'Warning': 'You must enter a name!'
+		}},
 
-	
+		{'Conditional': {
+			'Condition': function(){
+				if(monogatari.storage().player.name == 'Ernest Rutherford') {
+					return 'coog';
+				} else 
+					return 'poog'
+
+					
+			},
+			'coog': 'jump sinny',
+			'poog': 'jump nonny',
+		}},
+
+	],
+
+
+
+	'sinny':[
+		function(){
+			monogatari.storage().cinny = true;
+		},
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene'
+	],
+
+	'nonny':[
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene',
+	],
+//get it because it's in spanish I will literally cry
+
+
+
+
+
+//thaliaaaaaaaaaaaaaaaaa
+
+	'thaliaRoute' :[
+		'clear',
+		'play music school loop',
+		
+		
+		
+		{'Input': {
+			'Text': 'My name is...',
+			'Validation': (input) => {
+				return input.trim ().length > 0;
+			},
+			'Save': (input) => {
+				monogatari.storage ({ player: { name: input }});
+			},
+			'Revert': () => {
+				monogatari.storage ({ player: { name: '' }});
+			},
+			'Warning': 'You must enter a name!'
+		}},
+
+
+
+
+
+					{'Conditional': {
+						'Condition': function(){
+							if(monogatari.storage().player.name == 'Alexander Rose') {
+								return 'toog';
+							} else 
+								return 'yoog'
+
+								
+						},
+						'toog': 'jump ratlike',
+						'yoog': 'jump ratno',
+					}},
+	],	
+
+
+	'ratlike':[
+
+		function(){
+			monogatari.storage().thalia = true;
+		},
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene',
 
 	],
 	
-	'thaliaRoute' :[
-		"RATS RATS WHERE ARE THE RATS",
-		"CELEBRATING YET ANOTHER RODENT HEAD BASH",
-	],	
+	'ratno':[
+		'show scene #000000 with fadeIn',
+		'stop music',
+		'jump choicescene',
+	],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	'end': [
 		"And so time flew by, seemingly without a trace. Before I knew it, we had walked across the stage and received our diplomas.",
 		"My time at Shiwa Academy had come to a close",
