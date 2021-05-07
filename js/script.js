@@ -91,6 +91,8 @@ monogatari.assets ('scenes', {
 'atschool':'schoolbkg.jpg',
 'hallway':'hallway.jpg',
 'class':'inclass.jpg',
+'cafe':'cafe.jpg',
+'clubroom':'outsideclubroom.jpg',
 });
 
 
@@ -220,19 +222,19 @@ monogatari.script ({
 
 
 
-		{'Input': {
-			'Text': 'What is your name?',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
+	//	{'Input': {
+	//		'Text': 'What is your name?',
+	//		'Validation': (input) => {
+	//			return input.trim ().length > 0;
+	//		},
+	///		'Save': (input) => {
+	////			monogatari.storage ({ player: { name: input }});
+	//		},
+	///		'Revert': () => {
+	//			monogatari.storage ({ player: { name: '' }});
+	//		},
+	//		'Warning': 'You must enter a name!'
+	//	}},
 
 
 
@@ -241,7 +243,7 @@ monogatari.script ({
 		{'Choice': {
 			'Developer': {
 				'Text': 'Jump to working part',
-				'Do': 'jump classroomscene',
+				'Do': 'jump thaliaappears',
 			},
 			'Writer': {
 				'Text': 'I’m a gooner.',
@@ -432,7 +434,7 @@ monogatari.script ({
 	'classroomscene' :[
 		'show scene #000000 with fadeIn',
 		'wait 2000',
-		'play music school loop',
+		
 		'show scene class with fadeIn',
 		"We arrived at Gala's second period Chemistry Class. I found an open seat far back in the classroom.",
 		"Around me, students started shuffling into their chairs, chatting and cramming some last minute homework.",
@@ -446,7 +448,7 @@ monogatari.script ({
 		"y Oh, yeah. Hi! My name is-",
 		'show character b normal',
 		"b? I don't know if you know this, 'new student', but you're sitting in my chair.",
-		"b? You have five seconds to evacuate before I curb stomp you to the window sill.",
+		"b? You have five seconds to evacuate before I curb stomp you to the window sill and dissolve your body in nitric acid.",
 		"The aggression radiating from this angry child was aweing, and I would have found it humorous had it not been for the fact that I suddenly felt chills going down my spine, like I had been submerged in a bath of liquid nitrogen.",
 		"y Um- yeah. Let me just-",
 		"I fumbled out of the desk and stood awkwardly in the back of the classroom, watching as this rainbow-haired student strode over to my desk and sat down, proceeding to ignore me.",
@@ -479,7 +481,7 @@ monogatari.script ({
 		'hide character b with fadeOut',
 		"t Alright, next question, a little more tricky now.",
 		"t This one is going to involve a calculation, so get your calculators out.",
-		"t Alright. Let's say I have a sample of Uranium-238 that has decayed to the point where only 40% of the U-238 remains. How many years did it take for it do decay to this point? You shoulud estimate the half life to be exactly 4.5 billion years.",
+		"t Alright. Let's say I have a sample of Uranium-238 that has decayed to the point where only 40% of the U-238 remains. How many years did it take for it do decay to this point? You should estimate the half life to be exactly 4.5 billion years.",
 		"The numbers seemed to flow in my mind and arrange into place. Even without a calculator, I figured out the answer, and I was confident in it, while everyone else was still tinkering around on their devices.",
 		"The answer is...",
 		'jump questiontime',
@@ -498,7 +500,7 @@ monogatari.script ({
 			},
 			'Artist': {
 				'Text': 'Orion Bloomfield',
-				'Do': "'Orion Bloomfield!' I wanted to say. The energy radiating from that name was so strong, I felt compelled to say it. It was like the forces of the universe converged on this individual. I didn't even know an Orion Bloomfield. I kept my mouth shut.",
+				'Do': "'Orion Bloomfield!' I wanted to say. The energy radiating from that name was so strong, I felt compelled to say it. It was like the forces of the universe converged on this individual. I didn't even know an Orion Bloomfield. I kept my mouth shut, but doing so made me feel a deep, burning dissapointment, like I committed a sin.",
 			},
 			
 		}},
@@ -511,17 +513,178 @@ monogatari.script ({
 	'quickmaths': [
 		"y 5.9486 x 10^9 years.",
 		"The words came out of my mouth before I knew it. Everyone in the class stopped what they were doing and looked at me in shock.",
-		"t That's... Correct! Well done, new guy! You're a smart cookie.",
+		"t That's... Correct! Well done, new guy! You're a smart cookie. I love that for you.",
 		"I sheepishly receded into the desk, the two seconds of fame slowly fading from my mind as I felt the cold stare of Bizzie boring into my left shoulder.",
 		'show character b normal with fadeIn',
 		"b ...",
 		"I felt like I already had made an enemy out of the angry little child. Should her threats come to fruition, my time at the academy would be a short, bloody one.",
-		
+		"I resigned myself to my chair, keeping my mouth shut out of fear for the rest of class. As the teacher continued with the review questions, the powerful gaze of Bizzie continued to pierce into my shoulder with the force of a thousand particle accelerators, powerful enough to transmute my feeble element nucleus into a gold nuclei.",
+		"I had only the bell to save me now...",
+		'play sound bell',
+		"Bless!",
+		"I tried getting out of my seat, but before I could even stand up, Bizzie had already crossed the entire classroom and left, slamming the door on the way out.",
+		'hide character b with fadeOut',
+		"...Perhaps she had to catch another class?",
+		"I sighed in relief, but an object on the ground caught my eye.",
+		"It was a red, leather bound notebook. The same one I saw Bizzie using earlier.",
+		"She must've dropped it on her scurry out of here.",
+		"I picked up the notebook and flipped through the contents, expecting notes and diagrams, but more importantly any contact information.",
+		"Instead, I came face to face with the words 'Dear Diary,' on the top of each page.",
+		"...",
+		"Out of all the things I could've come across, the diary of the person who threatened to put my face through the window was not one of them.",
+		"I stared at the notebook for a bit before a tug on my sleeve brought me back to reality.",
+		'show character g normal with fadeIn',
+		"g Hey, you good? Come on! We have to make it to the next class.",
+		"y Y-yeah. Before we go, though, do you know who Bizzie is?",
+		'show character g surp',
+		"The name seemed to have an effect on her.",
+		'show character g normal',
+		"g Bizzie? Yeah! She's been my friend since we were children at Little Pebble Kindergarten! Although she does seem a bit distant now that we're in high school...",
+		"g Maybe she's just been busy! This school really does pile things up on you.",
+		'show character g pout',
+		"g But still, I really want to be able to talk to her again...",
+		"I wondered if Gala knew that her 'friend' made death threats to new people whenever possible. Gala wore a pained smile on her face as she talked about Bizzie.",
+		"It was strange that Gala said that they were friends, too. Do friends smirk at their friend being humiliated? What kind of toxic relation did Gala get herself into?",
+		"Not even a greeting or goodbye was said between them this entire period. More than anything, though, it seemed that Bizzie was avoiding Gala for some reason.",
+		'show character g normal',
+		"g Hey! Snap snap! Or we're gonna be late for next period!",
+		"y Oh, yeah.",
+		"I followed Gala out into the hallway",
+		'show scene #000000 with fadeIn',
+		'wait 1000',
+		'jump thaliaappears',
+		],
+
+	'thaliaappears':[
+		'show scene hallway with fadeIn',
+		"The hallway was busy, as usual. I tailed behind Gala as we made our way to the next class.",
+		'show scene hallway with shake infinite',
+		"I felt the ground shake a little - it felt like there was a stampede of elephants making its way across the hallway.",
+		"th? MOVE OUTTA THE WAY NERDS! THERE ARE RATS IN HERE",
+		"I don't know what thoughts went through my mind when I heard that phrase - terror? Curiousity? A general 'what the fuck is happening right now?'",
+		'show character g surp with shake infinite',
+		"g Oh no...",
+		"y Why 'Oh no'? What's going on? What-",
+		'hide character g with fadeOut',
+		'show character th surp with fadeIn shake infinite',
+		"The last thing I saw before I got absolutely bodied was the figure of a lean silver-haired girl.",
+		'show scene #000000',
+		" ",
+		'wait 3000',
+		'th? Yo! Yo! Gooner! Wake up!',
+		"My eyes slowly opened to the scene at play.",
+		'show scene hallway with fadeIn',
+		'show character g surp left',
+		'show character th normal right',
+		"th? Glad you're awake! You took quite a hit there!",
+		"g Thalia, we talked about this. No club activities during transition period.",
+		'show character th emb right',
+		"th Yeah yeah yeah, rat killing can come later. I'm sorry.",
+		"I should've recognized this sooner, but I realized now that no one at this school was normal.",
+		'show character th normal right',
+		"th Anyways, new guy! The name's Thalia! Thals, Thalla, the ol' 81, call me whatever, but if you call me Th for short I will bite you.",
+		"th I'm the president of the Rat Killing Club! Did you know that there are rats everywhere? You might think they're cute, but let them loose and they tear up all the walls and the floors and eat through the trash bins like an acid solution.",
+		"th The Rat Killing Club is always looking for passionate new members! We're application only, but since I kinda smacked you, I can give you a president's recommendation! That's my apology offer!",
+		"The amount of information that was presented to me in that short amount of time fried my brain. I opened my mouth to speak but nothing came out. I literally had no words to describe what just happened.",
+		"th Welp! Gotta get to rat ki- I mean class! Gotta get an education! That's why I'm here! Remember our offer and don't be a stranger next time you see me!",
+		'hide character th with fadeOut',
+		"With that, Thalia sprinted down the hallway, knocking over some other poor students in the way.",
+		'show character g normal with fadeIn',
+		"g Thalia's one of the more energetic ones here. Very passionate. Almost a little scary just how passionate she is.",
+		"g Knowing her, she's definitely cutting class again to clean up the school. While all the teachers frown upon that, she does a really good job of it though. I think they've kind of given up trying to track her down for truancy.",
+		"g But gah! You were out for so long that third period's started already! Come on, or we're gonna be even more late!",
+		'hide character g with fadeOut duration 2000',
+		'show scene #000000 with fadeIn',
+		"In my first few hours of school here, I had already gotten lost, gotten a death threat, almost died, and now was extended an offer to join a society of rat exterminators.",
+		"Needless to say, I realized I had a lot to learn before I could find my place here.",
+		'jump secondstage'
 	],
+
+		'secondstage':[
+			"Classes went by in a blur. As I shadowed Gala all day, I got to learn a lot more about the school's curriculum and culture.",
+			'show scene cafe with fadeIn',
+			'show character g normal with fadeIn',
+			"g That's all for today! Hope you enjoyed the tour!",
+			"g I would say you're on your own now, but feel free to reach out to me anytime! I love helping people out whichever way possible.",
+			"g But for real now, I have to go to run a club meeting. Have fun exploring the school!",
+			'hide character g with fadeOut',
+			"With that, Gala disappeared into the maze of hallways that was Shiwa Academy.",
+			"I was left alone in the cafeteria with little sense of direction to where the dorms were, or how to even get out of the place.",
+			"...Maybe I should've followed her.",
+			"In the distance, though, I saw a small, familiar figure sitting alone at a table. She was scribbling away at a few other notebooks.",
+			'show character b normal with fadeIn',
+			"I remembered our earlier interaction - and the chills returned.",
+			"But sitting tucked away between my textbooks was the red notebook that Bizzie dropped in Chemistry class. I felt obligated to return it to her, even if my body would never be found ever again.",
+			"Gathering up the courage from somewhere inside me, I approached Bizzie.",
+			"y H-Hello.",
+			'show character b close',
+			"b Bizzie barely looked at me as I approached her. She continued writing down notes and drawing diagrams.",
+			"y I have something that you dropped earlier.",
+			"I pulled the red notebook out and placed it on the table in front of her.",
+			'show character b normal',
+			"Bizzie immediately stopped what she was doing.",
+			"b You didn't look inside, didn't you?",
+			"y N-no.",
+			"b ...",
+			"y ...Maybe just a little?",
+			"b ...",
+			"Bizzie was deathly calm as she carefully lifted the red notebook and tucked it into the darkness of her oversized bookbag.",
+			"b Thank you for returning this to me. It means a lot.",
+			"The sweat dropped from my brow as I internally breathed a sigh of relief. But my curiousity got the hold of me, and I decided to press forward with my luck.",
+			"y So...when did you meet Gala?",
+			"b ...",
+			"b When we were kids. Anything else? You're disturbing my studying.",
+			"y So... why do you hate her so much?",
+			"b What makes you say that?",
+			"y Everything...?",
+			"b ...",
+			"b You really shouldn't pry too much into other people's lives.",
+			"y You know, she still considers you to be a friend.",
+			'show character b close',
+			"b That dense girl still thinks we're friends? Unbelievable.",
+			"y You should really go talk to her some day.",
+			'show character b normal',
+			"b No, you don't know anything.",
+			"y I might not know anything about you two, but I know that Gala is trying really hard to keep you as a friend. She doesn't want to lose you.",
+			"b ...",
+			"b ...",
+			"Bizzie was silent for a long time, before she finally spoke again.",
+			'show character b smile',
+			"b You know, for being the new guy, you're really smart.",
+			"y ...Thanks?",
+			"b Earlier, you solved that problem like it was nothing. I was still trying to plug in numbers into my calculator when you gave the answer.",
+			"b You've earned my respect.",
+			"I didn't know that this angry little girl could be... such a cute at some times. Her angry demeanor usually gave off an aggressive aura, but when she smiled it was like she brightened up.",
+			"b How did you do it? How did you solve it so quickly? And don't give me any crap like 'I just paid attention in Chem class'.",
+			"y Well, uh, it's just kind of a flow, you know?",
+			"y Once you get the element of it, the rest is pretty easy.",
+			"y You just have to plug in numbers and solve. I think every puzzle is kind of like this. You have to understand it first to be able to do it quickly and efficiently.",
+			"b That really doesn't help at all, but I'll keep that in mind.",
+			"b But... thanks for the notebook again. Hey, since you're a new student and all, you have to join a club, right?",
+			"y Do I?",
+			"b Yeah, every student here is part of a club. I run the Gastroenterology club here. Y'know, we could use someone like you there.",
+			"y I'll... think about it, I guess?",
+			"b Take your time. Anyways, you're lost, aren't you?",
+			"y ...How could you tell?",
+			"b Because you were floundering a lot after Lala left you.",
+			"... Who's Lala?",
+			"b The exit to the courtyard is through the west entrance. If you follow the path you will get to the arch, and just beyond that are the dorms.",
+			"y Oh, alright, thank you!",
+			"b See you later. Don't forget about the offer!",
+			'hide character b with fadeOut',
+			"With that, I left the cafeteria feeling relieved. I felt like I had gotten closer with someone on my first day here.",
+			'show scene #000000 with fadeIn',
+			'wait 1000',
+			'show scene schoolcourt',
+
+
+
+		],
 
 		
 	//this line is just for fun but change aftrerwards
 		
+	
 	
 
 
@@ -532,32 +695,46 @@ monogatari.script ({
 		"Joining their club would be a great opportunity to get to know them better. It felt like I needed to do all four of them eventually before I could move on with my life.",
 		"But in the here and now, I had to make a decision before I went to bed.",
 		"I really want to get closer to...",
+		
+		function () {
+			monogatari.storage().gala = true;
+			monogatari.storage().cinny = true;
+			monogatari.storage().bizzie = true;
+			monogatari.storage().thalia = true;
+		},
 
+		"ooga booga",
+                
 		{'Choice': {
 			'Gala': {
-				'Text': 'Plumbing: Gala - Room 210',
+				'Text': 'Gala - Room 210',
 				'Do': 'jump galaRoute',
 			},
-			'Cinny': {
-				'Text': 'Dentistry: Cinny - Room 194',
+			'Writer': {
+				'Text': 'Cinny - Room 194',
 				'Do': 'jump cinnyRoute',
 			},
-			'Bizzie': {
-				'Text': 'Gastronomy: Bizzie - Room 207',
+			'Artist': {
+				'Text': 'Bizzie - Room 207',
 				'Do': 'jump bizzieRoute',
 			},
-			'Thalia': {
-				'Text': 'Rat Killing Club: Thalia - Room 207',
+			'Player': {
+				'Text': 'Thalia - ROom 204',
 				'Do': 'jump thaliaRoute',
 			},
-			'End': {
-				'End': 'end',
-				'Do': 'jump end',
-				'Condition': function () {
-					return storage.playing && storage.media && storage.scripting && storage.animations;
+			'End':{
+				'Text': 'End',
+				'Do':'jump end',
+				'Condition': function (){
+					return monogatari.storage().gala && monogatari.storage().cinny && monogatari.storage().bizzie && monogatari.storage().thalia;
+				
 				}
 			}
 		}},
+
+
+
+
 	],
 
 
@@ -595,8 +772,27 @@ monogatari.script ({
 		"Regardless, you have done well.",
 		"You're probably wondering where the answer is.",
 		"We've already given it to you.",
-		"Well, once you figured out "
-	]
+		"Well, once you figured it out, at least.",
+		"Oh? We didn't?",
+		"Silly. You weren't expecting us to just say 'The answer is...' and be done with it, no?",
+		"Think about the people you've met today. The ones whose lives you changed.",
+		"The ones you had to learn about and pursue.",
+		"There's something in common with them all, right?",
+		"And there's something in common with them, as well as the name you were given in the end, right?",
+		"You know the answer already, you were just too afraid to look it in the eye.",
+		"And that's not a good way to approach life!",
+		"As you go through life, the might current of society is bound to get in your way and there will certainly be times that things don't go as you'd hoped.",
+		"When this happens, don't look to society for a cause. Do not renounce society. Frankly, you'd be wasting your time!", 
+		"Instead just say, 'That's life!' and muddle your way through with frustration.",
+		"Once you're past it, consider: If society's swift current is tossing you around, how should you be swimming there in it's midst.",
+		"Always trust yourself.",
+		"There is a power inside you, stronger than anything you know.",
+		"Spend some time and get to know it!",
+		"Always know that you have yourself to rely on.",
+		"Always know that you have a gem within.",
+		'end',	
+
+	],
 		
 
 });
