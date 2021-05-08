@@ -36,23 +36,23 @@ monogatari.configuration ('credits', {
 
 monogatari.action ('message').messages ({
 	'Thalia': {
-		title: 'Congrats!',
-		body: 'You have completed the Thalia route! Clue: ZEPP',
+		title: '. ',
+		body: 'ZEPP',
 		icon: ''
 	},
 	'Bizzie': {
-		title: 'Congrats!',
-		body: 'You have completed the Bizzie route! Clue: LED',
+		title: '. ',
+		body: 'LED',
 		icon: ''
 	},
 	'Cinny': {
-		title: 'Congrats!',
-		body: 'You have completed the Cinny route! Clue: HARE',
+		title: '. ',
+		body: 'HARE',
 		icon: ''
 	},
 	'Gala': {
-		title: 'Congrats!',
-		body: 'You have completed the Gala route! Clue: PAT',
+		title: '. ',
+		body: 'PAT',
 		icon: ''
 	},
 });
@@ -104,6 +104,7 @@ monogatari.assets ('scenes', {
 'outclub':'outsideclubroom.jpg',
 'court2':'court2.jpg',
 'club':'clubroom.png',
+'smallclub':'smallclub.jpg',
 });
 
 
@@ -232,93 +233,6 @@ monogatari.script ({
 
 
 
-
-	//	{'Input': {
-	//		'Text': 'What is your name?',
-	//		'Validation': (input) => {
-	//			return input.trim ().length > 0;
-	//		},
-	///		'Save': (input) => {
-	////			monogatari.storage ({ player: { name: input }});
-	//		},
-	///		'Revert': () => {
-	//			monogatari.storage ({ player: { name: '' }});
-	//		},
-	//		'Warning': 'You must enter a name!'
-	//	}},
-
-
-
-
-		'show scene #000000 with fadeIn',
-		{'Choice': {
-			'RightAnswer': {
-				'Text': 'Jump Gala',
-				'Do': 'jump galaRoute',
-			},
-			'Pineapple': {
-				'Text': 'Jump Cinny',
-				'Do': 'jump cinnyRoute',
-					
-			},
-			'Artist': {
-				'Text': 'Jump Bizzie',
-				'Do': 'jump bizzieRoute',
-			},
-			'Rat':{
-				'Text':'Jump Thalia',
-				'Do': 'jump thaliaRoute',
-
-			},
-			
-		}},
-		" ",
-		//delete later
-		'p Ooga booga',
-
-		{'Input': {
-			'Text': 'New name time!',
-			'Validation': (input) => {
-				return input.trim ().length > 0;
-			},
-			'Save': (input) => {
-				monogatari.storage ({ player: { name: input }});
-			},
-			'Revert': () => {
-				monogatari.storage ({ player: { name: '' }});
-			},
-			'Warning': 'You must enter a name!'
-		}},
-
-		{'Conditional': {
-			'Condition': function(){
-				if(monogatari.storage().player.name == 'ooga booga') {
-					return 'ooga';
-				} else 
-					return 'fucker'
-
-					
-			},
-			'ooga': "ez clap",
-			'fucker': "ah fuck",
-		}},
-
-		'p rocks are cool',
-
-		'show character g normal with fadeIn at right',
-		"g test",
-		'show character c normal with fadeIn at left',
-		"c test",
-		'show character b normal with fadeIn at centerRight',
-		"b test",
-		'hide character g with fadeOut',
-		'hide character c with fadeOut',
-		'hide character b with fadeOut',
-		'show character th normal with fadeIn at centerLeft',
-		"th I kill rats",
-		'hide character th with fadeOut',
-		"HAVE YOU EVER WANTED TO FUCK A ROCK? WELL NOW YOU CAN! WELCOME TO ROCK FUCKING SIMULATOR 9000 WHERE WE GIVE YOU THE BEST ROCKS TO FUCK YEE HAW OR ITS YOUR MONEY BACK",
-		//delete between
 		"centered It's strange, isn't it?",
 		"centered The universe began from but a mote of matter. . .",
 		"centered I mean, what are the chances we are even here?",
@@ -333,12 +247,7 @@ monogatari.script ({
 		
 		"centered The Universe was born",
 		"centered ...",
-		//delete later
-		"g test",
-		"c test",
-		"b test",
-		"th test",
-		//delete later
+		
 		"centered Amazing, isn't it?",
 		"centered How so many coincidences can come together and create so many meaningful things",
 		"centered So many things to enjoy",
@@ -1002,7 +911,7 @@ monogatari.script ({
 		"p Oh... I get it.",
 		"It was a quick, brutal rejection. The room was awkward for a bit, before I excused myself back to the dorms.",
 	
-
+		"Man, if only I were someone else.",
 		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
 		'wait 3000',
@@ -1052,10 +961,17 @@ monogatari.script ({
 	'bizzieRoute': [
 		'clear',
 		'play music school loop',
-		
-		
-		
-		
+		'show scene cafe with fadeIn',
+		"During lunch time, I usually came to the cafeteria to eat. Today, however, was unusually crowded. I wandered around the room for a bit before giving up.",
+		"As I tried making my way out of the cafeteria, a certain small individual caught my eye.",
+		'show character b close with fadeIn',
+		"Bizzie was in deep concentration in something. Scattered around the table she was hogging were notebooks, pencils, and a bowl of mysterious pink liquid.",
+		"Having nowhere to sit, I decided to try my luck.",
+		"y Hey, uh, Bizzie.",
+		'show character b normal',
+		"b What?",
+		"b ...",
+		"b Oh, it's you. What's your name again?",
 		{'Input': {
 			'Text': 'My name is...',
 			'Validation': (input) => {
@@ -1069,6 +985,115 @@ monogatari.script ({
 			},
 			'Warning': 'You must enter a name!'
 		}},
+		"b Mhm, ok. What are you doing here?",
+		"p Can I, uh, sit here? Please?",
+		"Bizzie contemplated it for a moment, before saying,",
+		"b I suppose it won't hurt if you were to be in my proximity. Don't touch anything, or I'll kill you.",
+		"I gently sat down in the chair across the table from her. Notebooks scattered every square inch of the table. As Bizzie worked, she periodically stopped to take a bite from her viscous bowl of pink slurry.",
+		"p Hey, uh, Bizzie, what is that that you're eating?",
+		"Bizzie looked at me as if I asked her to commit a cardinal sin.",
+		"b ...",
+		"p Uh, never mind, I guess.",
+		"b It's custard.",
+		"p Is it good at least?",
+		"b It's amazing. Thank you for asking. Why don't you ask me about Seaborg's transmutation of gold, while you're at it, since you apparently want my thought process on everything?",
+		'hide character b with fadeOut',
+		"I learned to be quiet around Bizzie in order to not invoke her wrath. But seeing her happily chowing down on a bowl of pink custard made her almost seem like a regular teenager, not some distantly snappy child.",
+		"I must have been dazed out for a while, because the moment she snapped her fingers in my face I was pulled back into reality.",
+		'show character b normal with fadeIn',
+		"b Hey. Help me carry my things back to my club room. If you drop anything you're dead. Here's my number if you get lost.",
+		"Bizzie wrote down some digits on a piece of paper and handed it to me.",
+		"It read 5.3826823381101",
+		"To anyone else, it would've been seen as a deathly scary demand. But I realized that for someone who did every by herself for so long, this was probably the first time she asked someone for help.",
+		'hide character b with fadeOut',
+		"Bizzie placed the bowl's cover back on, before neatly packing it up and walking away, leaving behind the rest of her notebooks and pencils.",
+		"Sighing, I picked up the pieces after her and navigated my way through a maze of bodies and tables. For someone the size of Bizzie, I wondered how she didn't get lost.",
+		'show scene #000000 with fadeIn',
+		'wait 3000',
+		'show scene outclub with fadeIn',
+		"I managed to catch up to Bizzie who was making her way down the long corridor of club rooms.",
+		'show character b normal with fadeIn',
+		"She stopped in front of a door. The plaque on it was nowhere near as impressive as the others. It was more a laminated poster taped onto the door which read: 'Gastroenterology Club - Room 207 - President: Bizzie'",
+		"I wondered why there was such a discrepancy, until Bizzie opened the door to the club room.",
+		'show scene smallclub with fadeIn',
+		"The club room was obviously refurbished from a storage room. Stacks of chairs and tables piled up in the corner. There was so much dust in the air I felt my immune system tingling.",
+		"On the far side of the room, a small blackboard lined the wall. Only the bottom half of it had any writing on it, presumably because the only person who did write on it was not tall enough.",
+		'show character b normal with fadeIn',
+		"b Welcome to the Gastroent Club, population me.",
+		"p Don't you have other members?",
+		"b Nope, just me.",
+		"Bizzie plopped herself down onto a chair in the corner.",
+		'show character b close',
+		"b The club started this year. I had to fight tooth and nail to even get it approved, because no one looks at Gastroenterology and thinks 'That's a fun club I should join!'",
+		"b Everyone else's clubs all are well-established, and have nice names and actually appeal to people. ",
+		"b Now that I've experienced founding a club, I have so much respect now for those who've founded bigger, greater things than just high school clubs. There are so many geniuses who were inventors of their field, yet didn't get the recognition they deserved.",
+		"b I mean, who wants to study how the stomach works anyways?",
+		"p I do.",
+		'show character b normal',
+		"b ...",
+		"b Do you want to know why I eat that custard every day?",
+		"p Uhh, sure?",
+		"b When I was younger, I used to get a lot of stomachaches. After playing with my friend, I would come home and I would feel terrible.",
+		"b My mom would make me some special custard - the same one I have now - to help me, and it immediately soothed the pain.",
+		"b Sometimes, they would be really bad. And I was stuck in bed all day while my friends were outside.",
+		"b It was honestly the worst time of my life.",
+		"p Your friends... was one of them Gala?",
+		"b ...",
+		"b Yes. Gala and I used to be friends when we were younger.",
+		"p Why 'used to'? Why can't you guys be friends now?",
+		"b ...Because we're too far apart now.",
+		"I felt the feeling of jealousy emanating from Bizzie, her rainbow colored hair rippling in meager sunlight provided by the window.",
+		"b Gala was... and will always be better than me. I've given up trying to close the distance.",
+		"p What does that mean?",
+		"b Even in our childhood, Gala was always the one that the others liked more. Even now, after both of us are here at Shiwa, she's still so much more liked.",
+		"b When I heard that Gala was accepted into Shiwa, I was shocked. How could someone like her get in? She was so bad at studying, never got as good grades as I did, yet she still had something I didn't.",
+		"b I studied so hard to get noticed by Shiwa. I spent almost every waking hour before trying to prove that I was just as good.",
+		"b And despite the fact that I'm here along with her, it feels like she's just ahead by so much. She's president of the History Club, who actually has members, and I'm here trying to keep my club alive.",
+		'show character b close',
+		"b It isn't fair.",
+		"I didn't know that Bizzie thought this way. All this time, I thought that she was a stuck up, pompous brat, who looked down on those who were less intelligent, less capable than her. But now, it almost felt like listening to myself a bit.",
+		"p Have you tried, just, talking to her?",
+		'show character b normal',
+		"b Don't be silly. She would never talk to someone like me.",
+		"p I don't know about that. Remember how I came up to you that day with your notebook?",
+		"b Don't remind me.",
+		"p I could've not returned it to you. We wouldn't be having this conversation right now. We would be total strangers, still sitting in Chem class a chair apart barely knowing each other.",
+		"p I took a leap of faith, Bizzie. I think you should too.",
+		"Bizzie was silent for a long time. I realized that I suddenly said too much. Instead of being greeted by a death stare, Bizzie smiled instead.",
+		'show character b smile',
+		"b You know, you might just be either the most annoying person or the wisest person I know.",
+		"p Why not both?",
+		"b Don't be silly.",
+		"b Hey, I just have a question.",
+		"b Why do you still try to talk to me? I don't mean that in a negative way.",
+		"b It's just that I've been nothing but cruel to you, and I even threatened to kill you on your first day here. That was probably not the best first impression. Now, you've heard my story, and now you know I'm just a little brat. So why?",
+
+
+		{'Choice':{
+			'Like':{
+			'Text': "Because I like that you're unique, Bizzie.",
+			'Do': "b -!",
+
+		},
+		'No':{
+		
+			'Text': 'Because I like you',
+			'Do': 'jump bconfess',
+		},
+			
+		},
+		},
+		
+		'show character b normal',
+
+		'jump bconfess',
+		
+	],
+	
+	'bconfess':[
+		
+		'show character b normal',
+		"p You're an amazing person, Bizzie. You just need to stop comparing yourself to others and really just try to fight for your beliefs. I know you can do it, and I want to support you.",
 
 		{'Conditional': {
 			'Condition': function(){
@@ -1089,7 +1114,13 @@ monogatari.script ({
 
 	'bizzieReject':[
 
-
+		"Bizzie said nothing. She slowly got up and went for the door.",
+		"b I thought you were different. I thought you were a different person than you are. It's my fault. I should've known.",
+		"Bizzie reached the door.",
+		"b Don't come back again tomorrow. From here on outwards, we don't know each other.",
+		'hide character b with fadeOut',
+		"The silence in the room was deafening. I felt my own hopes and expectations shatter, their fragments strewn about on the dusty floor below me.",
+		"Man, if only I were someone else.",
 		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
 		'wait 3000',
@@ -1098,6 +1129,18 @@ monogatari.script ({
 
 	'bizzieSayYes':[
 
+		'show character b close',
+		"Bizzie suddenly stood up.",
+		"b Don't be silly, Victor. You don't really want to be around me.",
+		"She went to leave the room, but stopped and turned around.",
+		'show character b smile',
+		"b Can you come again tomorrow? I would really like that.",
+		"p Yeah, sure.",
+		"b Good. Then, well, see you tomorrow, I guess.",
+		'hide character b with fadeOut',
+		"Bizzie left the room. The image of her smile was imprinted in my memory, leaving a funny feeling in my heart.",
+
+		"My efforts to getting to know Bizzie had paid off. I spent the time cleaning the dusty room as best as possible for tomorrow, before gently shutting the door behind me as I left.",
 		function(){
 			monogatari.storage().bizzie = true;
 		},
@@ -1315,7 +1358,7 @@ monogatari.script ({
 		"p No... I get it.",
 		'hide character c with fadeOut',
 		"We cleaned the rest of the room in silence. When it was time to go, Cinny left the room in a hurry, leaving me alone with my thoughts.",
-
+		"Man, if only I were someone else.",
 		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
 		'wait 3000',
@@ -1332,9 +1375,28 @@ monogatari.script ({
 	'thaliaRoute' :[
 		'clear',
 		'play music school loop',
-		'show scene ',
-		
-		
+		'show scene hallway with fadeIn',
+		"It was a day like any other. I was minding my own business after class, when I heard it again.",
+		'show scene hallway with shake infinite',
+		"th RATS RATS WHERE ARE THE RATS!",
+		"th CELEBRATING YET ANOTHER NOGGIN BASH",
+		'show character th normal at left',
+		'wait 30',
+		'show character th normal at center',
+		'wait 30',
+		'show character th normal at right',
+		'wait 30',
+		'hide character th',
+		"Fortunately I had practiced sidestepping the stampede of the individual in question. I watched as Thalia zipped across the hallway.",
+		"Then, Thalia suddenly skidded to a halt, before launching herself back towards my direction.",
+		'show scene hallway',
+		'show character th normal at right',
+		'wait 30',
+		'show character th normal at center',
+		"th Yo! New kid! How's it hanging?",
+		"y I'm doing well, but I have a name, you know?",
+		"th Do you now, Mr. Goon? Care to enlighten ol' Thalia on what we should call you?",
+				
 		{'Input': {
 			'Text': 'My name is...',
 			'Validation': (input) => {
@@ -1349,7 +1411,114 @@ monogatari.script ({
 			'Warning': 'You must enter a name!'
 		}},
 
+		"p My name is {{player.name}}.",
+		"th Lame! I'll call you Gooner from now on.",
+		"p Oh, ok...",
+		"th Hey Gooner! You should totally swing by the Rat Killing Club later today! I need your help with something.",
+		"p What do you need?",
+		"th Your brains, of course!",
+		'show character th emb',
+		"th I'm kinda failing math right now, and I could use a tutor like you to help me.",
+		'show character th normal',
+		"th I'll buy you snacks in return! How does that sound? Deal? Here's my number in case you have any questions.",
+		"th It's 7.70875782516 x 10^-18",
+		"Alright! Smell ya later!",
+		'hide character th with bounceOutRight',
+		"Before I could object, Thalia had already vacated the premises, leaving behind a trail of dust in her wake.",
+		"I didn't feel like I had a choice in the matter.",
+		'show scene #000000 with fadeIn',
+		'wait 3000',
+		'show scene club with fadeIn',
+		"The Rat Killing Club, was surprisingly well furnished. Outside, the plaque read: 'Rat Killing Club - Room 204 - President: Thalia'",
+		'show character th normal with fadeIn',
+		"th Yo Gooner! Nice of you to join us.",
+		"p I'm here to help you with your math homework. I haven't officially joined the Rat Killing Club yet.",
+		"th Yeah yeah whatever. Alright here's what's up.",
+		"th I got these math problems about triangles and stuff. Don't know about any of this. Anyways there's this fella named 'Lexa the Geologist' who's in them and they're really tryin' their hardest to make it the gas station.",
+		'show character th emb',
+		"th Every time I think of poor Lexa crossing the desert I get sad and can't do it, so I need you to help me so I won't get sad anymore!",
+		"Thalia was surprisingly compassionate for someone of her demeanor and personality, even if that compassion was directed towards fictional math protagonists. It made her seem so much more human, rather than the flying frenzy that I usually saw in the hallways at odd hours.",
+		'show character th normal',
+		"p Yeah, I can help you. So, for this problem here...",
+		" ",
+		'hide character th with fadeOut',
+		'show scene #000000 with fadeIn',
+		'wait 2000',
+		'show scene club with fadeIn',
+		'show character th surp with fadeIn',
+		"th So that's how you do it! Poor Lexa, you gotta get to the road on a slant!",
+		"p Yeah, and that's about it. Remember the quadratic to find the minimum time.",
+		"th Yeah yeah quadratics schematics. Hey, you wanna come rat hunting with me?",
+		"p I...",
+		"th Come on! It'll be fun!",
+		'hide character th with fadeOut',
+		'show scene #000000 with fadeIn',
+		"Thalia dragged me out of the club room before I could react. I trailed behind her as she zigged and zagged over the school at her usual pace. Before I knew it...",
+		'show scene hallway with fadeIn',
+		'show character th normal with fadeIn',
+		"th Bingo! Here we are! Best rat hunting spot there is!",
+		"p Give me a second while I try not to lose my lunch on the floor.",
+		"th Yeah yeah, anyways, look, you see that?",
+		"On the ground was one of the fattest rats ever. It was literally the size of a small dog, and just as feisty. It lumbered around with an exaggerated swagger.",
+		"th Look at the clompers on that thing! It's humungous! Here, go catch it!",
+		"p Me?",
+		"th Yeah! You! If you let that thing go, it'll wreak havoc everywhere and endanger the student body with hair loss and finger numbness!",
+		'hide character th with fadeOut',
+		"I didn't think rat's could do that, but I digress: I know nothing about rats. I slowly sneaked up to the fat rat, reached out to grab it-",
+		"p OW!",
+		"The rat turned around suddenly and chomped me on the finger. Thankfully it's teeth weren't that sharp so that it didn't draw blood, but in my few seconds of agony the rat scurried away.",
+		'show character th uhoh with fadeIn',
+		"th ...",
+		"p I'm sorry...",
+		"th Mhm...",
+		"th That was gonna be the biggest catch of the week, and you let it get away.",
+		'show character th normal',
+		"th No worries! We'll just try again. It couldn't have gotten too far. Come on! We're going after it!",
+		'hide character th with fadeOut',
+		"Thalia dragged me along through the hallways, chanting a mantra about the Pied Piper drowning all the rats. I couldn't help but feel bitter that I failed such an easy task, but the more Thalia engaged me in the art of Rat Hunting, the more I began to appreciate her work.",
+		"I enjoyed listening to Thalia's passionate speeches about how she needed to control the rat population.",
+		'show character th normal with fadeIn',
+		"th Did you know that rats breed like crazy? Some rat killers use arsenic or brodifacoum, or some other weak poison.",
+		"th I use my own, homemade poison, synthesized from the finest of compounds.",
+		"th Rat killing is an art, and you want to be the artist that's unique from everyone! Be different!",
+		'hide character th with fadeOut',
+		"Thalia proceeded to then drag me throughout the entire school, chasing the fat rat. We never found it.",
+		'show scene #000000',
+		'wait 3000',
+		'show scene court2 with fadeIn',
+		'show character th normal with fadeIn',
+		"th Man! I'm pooped. That was a good day of chasing!",
+		"I was still out of breath from the whole event. Thalia looked barely winded.",
+		"th You did good Goon boy! For your first day.",
+		"th Not many of my own members can even get close to big rats before getting scared off.",
+		"th Consider yourself an honorary member of the Rat Killing Club! Of course, you can officially join us, but whatever floats your boat!",
+		"Between my ragged breaths, I could see Thalia standing, looking proudly at the school building.",
+		"I don't think I'd ever understand what goes on through Thalia's head. But seeing her bask in the sunlight, proud of her own work filled me with raw emotion.",
 
+		
+		{'Choice':{
+			'L':{
+			'Text': 'I like you.',
+			'Do': 'jump thConfess',
+
+		},
+		'Rat':{
+		
+			'Text': 'I want to kill more rats with you.',
+			'Do': "th Oh? You want to join the Rat Killing Club?",
+		},
+			
+		},
+		},
+		"p Yeah, I guess, but also, I just wanted to say that I like you.",
+		'jump thConfess',
+		
+
+	],
+
+
+
+	'thConfess':[
 
 
 
@@ -1358,17 +1527,35 @@ monogatari.script ({
 							if(monogatari.storage().player.name == 'Alexander Rose') {
 								return 'toog';
 							} else 
-								return 'yoog'
+								return 'michael'
 
 								
 						},
 						'toog': 'jump ratlike',
-						'yoog': 'jump ratno',
+						'michael': 'jump ratno',
 					}},
 	],	
 
 
 	'ratlike':[
+
+		'show character th surp',
+		"th ...",
+		"th Man... why do you have to go and wreck my train of thought...",
+		"th Mmmm...",
+		'show character th emb',
+		"I noticed Thalia visibly squirming under my gaze.",
+		"th ...I-uh, I mean-uh, that-",
+		"th ....",
+		"th ...ok.",
+		"I didn't know that Thalia had this kind of side to her. The usually hotheaded, energetic Thalia I knew was reduced to a stammering mess after my confession.",
+		"I found it quite cute, really.",
+		'show character th normal',
+		"th But! If you really want to prove that you like me, then you have to kill 100 rats by the end of this week!",
+		"p But-what? It's friday afternoon!",
+		"th Heehee, better get stompin Goonboy!",
+		"And with just that, Thalia took my arm and we traversed across the courtyard. Thalia was laughing the whole way.",
+		"My efforts to getting to know Thalia had paid off. I spent the time roaming around the halls with Thalia, tracking the path of the fat rat I swore I would get revenge on.",
 
 		function(){
 			monogatari.storage().thalia = true;
@@ -1376,13 +1563,24 @@ monogatari.script ({
 		'show message Thalia',
 		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
+		'wait 3000',
 		'jump choicescene',
 
 	],
 	
 	'ratno':[
+		'show character th uhoh',
+		"th ...",
+		"th ...",
+		"th ...",
+		"th Man, you're lame.",
+		'hide character th with fadeOut',
+		"And just like that, Thalia cold-heartedly rejected me, sprinting back into the school building. The tiredness finally caught up to me, and I collapsed on the soft grass of the garden.",
+		"Man, if only I were someone else.",
+
 		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
+		'wait 3000',
 		'jump choicescene',
 	],
 
