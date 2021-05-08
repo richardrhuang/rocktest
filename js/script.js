@@ -1,35 +1,23 @@
 //Hello! It seems that you have decided to peek into the java script for this project! While it would certainly help, 
-//there are definitely things hidden within the story itself that 
+//there are definitely things hidden within the story itself that you have to read through to understand. No shortcuts in life pal.
 //Oh and by the way the answer isn't mentioned once in the entirety of the code here. You gotta use your noggin
 
 
 
 
 
-/* global monogatari */
 
-// Define the messages used in the game.
-monogatari.action ('message').messages ({
-	'Help': {
-		title: 'Help',
-		subtitle: 'Some useful Links',
-		body: `
-			<p><a href='https://developers.monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p>
-			<p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>
-		`
-	}
-});
 
-// Define the notifications used in the game
+
+
 monogatari.action ('notification').notifications ({
-	'Welcome': {
-		title: 'Welcome',
-		body: 'This is the Monogatari VN Engine',
-		icon: ''
-	}
+	'Answer':{
+		title:'Congrats!',
+		body:'The answer is IGOON'
+	},
 });
 
-// Define the Particles JS Configurations used in the game
+
 monogatari.action ('particles').particles ({
 	
 });
@@ -46,6 +34,28 @@ monogatari.configuration ('credits', {
 	},
 });
 
+monogatari.action ('message').messages ({
+	'Thalia': {
+		title: 'Congrats!',
+		body: 'You have completed the Thalia route! Clue: ZEPP',
+		icon: ''
+	},
+	'Bizzie': {
+		title: 'Congrats!',
+		body: 'You have completed the Bizzie route! Clue: LED',
+		icon: ''
+	},
+	'Cinny': {
+		title: 'Congrats!',
+		body: 'You have completed the Cinny route! Clue: HARE',
+		icon: ''
+	},
+	'Gala': {
+		title: 'Congrats!',
+		body: 'You have completed the Gala route! Clue: PAT',
+		icon: ''
+	},
+});
 
 // Define the images that will be available on your game's image gallery
 monogatari.assets ('gallery', {
@@ -60,6 +70,7 @@ monogatari.assets ('music', {
 'dokidemon': 'dokidemoninjin.mp3',
 'boulo': 'boulo.mp3',
 'school': 'schooltheme.mp3',
+'grad': 'grad.mp3',
 });
 
 // Define the voice files used in the game.
@@ -90,8 +101,9 @@ monogatari.assets ('scenes', {
 'hallway':'hallway.jpg',
 'class':'inclass.jpg',
 'cafe':'cafe.jpg',
-'clubroom':'outsideclubroom.jpg',
+'outclub':'outsideclubroom.jpg',
 'court2':'court2.jpg',
+'club':'clubroom.png',
 });
 
 
@@ -240,30 +252,25 @@ monogatari.script ({
 
 		'show scene #000000 with fadeIn',
 		{'Choice': {
-			'Developer': {
-				'Text': 'Jump to gala',
+			'RightAnswer': {
+				'Text': 'Jump Gala',
 				'Do': 'jump galaRoute',
 			},
-			'Writer': {
-				'Text': 'Jump to biz.',
-				'Do': 'jump bizzieRoute',
+			'Pineapple': {
+				'Text': 'Jump Cinny',
+				'Do': 'jump cinnyRoute',
+					
 			},
 			'Artist': {
-				'Text': 'jump to cin',
-				'Do': 'jump cinnyRoute',
+				'Text': 'Jump Bizzie',
+				'Do': 'jump bizzieRoute',
 			},
-			'Player': {
-				'Text': 'jump to tha',
+			'Rat':{
+				'Text':'Jump Thalia',
 				'Do': 'jump thaliaRoute',
+
 			},
-			'Choice':{
-				'Text': 'jump to choice screen',
-				'Do': 'jump choicescene',
-			},
-			'nothing':{
-				'text':'nothing',
-				'do': "ooga boog",
-				},
+			
 		}},
 		" ",
 		//delete later
@@ -351,7 +358,7 @@ monogatari.script ({
 		"Shiwa Academy, the number one science institution in the world.",
 		"Every one of its graduates goes on to become prodigies in their field.",
 		"There's not even an application for the school - the school finds and recruits students themselves amongst hundreds of millions. The acceptance rate is practically 0%",
-		"And now, I'm here midway through the school year on a special scholarship.",
+		"And now, I'm here midway through the school year on a special scholarship. The new member of the Class of 2021.",
 		"To be honest? I'm nervous.",
 		"I don't feel like I belong here, but I don't feel like I belong anywhere else.",
 		"I'm stuck between a rock and a hard place.",
@@ -383,7 +390,7 @@ monogatari.script ({
 		'show character g pout',
 		"g? Ugh... this always happens... first I wake up late then I forget how to walk around the school...",
 		"y No it's fine...",
-		"She muttered under her breath a few times and slapped her cheeks a bit.",
+		"She muttered under her breath a few times.",
 		'show character g normal',
 		"g So anyways, hi! I'm Gala, and from you can tell, I'm a little dense.",
 		"g Welcome to Shiwa Academy! You're really gonna like it here.",
@@ -593,11 +600,14 @@ monogatari.script ({
 		"th I'm the president of the Rat Killing Club! Did you know that there are rats everywhere? You might think they're cute, but let them loose and they tear up all the walls and the floors and eat through the trash bins like an acid solution.",
 		"th The Rat Killing Club is always looking for passionate new members! We're application only, but since I kinda smacked you, I can give you a president's recommendation! That's my apology offer!",
 		"The amount of information that was presented to me in that short amount of time fried my brain. I opened my mouth to speak but nothing came out. I literally had no words to describe what just happened.",
-		"th Welp! Gotta get to rat ki- I mean class! Gotta get an education! That's why I'm here! Remember our offer and don't be a stranger next time you see me!",
+		
+		"Welp! Gotta get to rat ki- I mean class! Gotta get an education! That's why I'm here! Remember our offer and don't be a stranger next time you see me!",
 		'hide character th with fadeOut',
 		"With that, Thalia sprinted down the hallway, knocking over some other poor students in the way.",
 		'show character g normal with fadeIn',
 		"g Thalia's one of the more energetic ones here. Very passionate. Almost a little scary just how passionate she is.",
+		"g Who knows? Maybe there's something about her history that's made her the way she is now.",
+		"g Maybe we're all like that... but who knows?",
 		"g Knowing her, she's definitely cutting class again to clean up the school. While all the teachers frown upon that, she does a really good job of it though. I think they've kind of given up trying to track her down for truancy.",
 		"g But gah! You were out for so long that third period's started already! Come on, or we're gonna be even more late!",
 		'hide character g with fadeOut duration 2000',
@@ -676,6 +686,8 @@ monogatari.script ({
 			"b Because you were floundering a lot after Lala left you.",
 			"... Who's Lala?",
 			"b The exit to the courtyard is through the west entrance. If you follow the path you will get to the arch, and just beyond that are the dorms.",
+			"b It's easy to get lost here - there are so many hallways and rooms, and even the Club Room Room numbers are so isotopically similar.",
+			"b But you should always distinguish them by who occupies them. They've become kind of like an identity, like a weight on their shoulder.",
 			"y Oh, alright, thank you!",
 			"b See you later. Don't forget about the offer!",
 			'hide character b with fadeOut',
@@ -714,6 +726,8 @@ monogatari.script ({
 			"The more I talked to Cinny, the more relaxed I felt, moreso than being in the courtyard.",
 			"c But anyways, since you're a new student, I feel like it's obligatory for me to do so, you should join the Dentistry Club!",
 			"c I'm going to be honest, it's just me right now, and I could really use another person to help me keep it alive.",
+			"c It honestly feels like we're all pieces of a puzzle here, just elements of a larger table, perhaps.",
+			"c I'm doing my best to find myself in it, and you definitely should as well.",
 			"c But I'm not going to push you. There are plenty of other clubs with far more people, and you can probably have a lot more fun in those clubs than at a dingy little club like mine.",
 			"c Anyways, see you! I need to do some club paperwork.",
 			'hide character c with fadeOut',
@@ -748,8 +762,9 @@ monogatari.script ({
 		
 	'choicescene' :[
 
-		'clear',	
-		"It was the end of a very eventful day. I laid down in my bed exhausted by the amount of things that had happened.",
+		'clear',
+		'show scene #000000 with fadeIn',	
+		"It was the end of a very eventful first day. I laid down in my bed exhausted by the amount of things that had happened.",
 		"Oh, right. I pulled out the club packet from my bag and stared at it in the dim light. Despite there being hundreds of options to choose from, my mind naturally wandered towards just four of them.",
 		"Joining their club would be a great opportunity to get to know them better. It felt like I needed to do all four of them eventually before I could move on with my life.",
 		"But in the here and now, I had to make a decision before I went to bed.",
@@ -797,8 +812,17 @@ monogatari.script ({
 	'galaRoute': [
 		'clear',
 		'play music school loop',
-		'show scene hallway with fadeIn',
-		"",
+		'show scene outclub with fadeIn',
+		"After school the next day I stood outside Club Room 210. The plaque outside the door said 'History Club - Room 210 - President: Gala'.",
+		"I gently opened the door...",
+		'show scene club with fadeIn',
+		'show character g normal with fadeIn',
+		"g Hi! Are you here for what I think you're here for?",
+		"y Yeah! I'm here to sign up for the History Club!",
+		"g Awesome! Then I'm going to need your name to officially register for the club.",
+		"My name...right. I never gave her my name before, haven't I?",
+		"Oh well, this should be easy enough. I mean, it's not like having a 'wrong' name would do any harm, right?",
+
 
 		{'Input': {
 			'Text': 'My name is...',
@@ -813,6 +837,144 @@ monogatari.script ({
 			},
 			'Warning': 'You must enter a name!'
 		}},
+		"p Here you go.",
+		"g Thanks! I'm gonna give you my number so that we can be in contact.",
+		"g It's 0.027304663",
+		"g I'll turn the form in to the school officials later. In the meantime, consider yourself a member of the History Club!",
+		"g Like I said yesterday, we're currently looking at material infrastructure from Ancient Empires.",
+		"g Currently, I'm doing research on Ancient Rome. ",
+		"p Why the interest?",
+		'show character g emb',
+		"g Well, it's kind of strange really. Promise me you won't judge.",
+		"p Oh?",
+		"g I, uh, I'm interested in Ancient Roman plumbing.",
+		"p You're interested in what now?",
+		'show character g normal',
+		"g Ancient Roman piping! Their pipe system was incredibly vast and organized, and the aqueduct was an incredible invention that helped so many.",
+		"g Siphon pipes, water pipes, a lot of pipes used this strong, sturdy material.",
+		"g Even though the material could become dangerous at times, they were able to continue living normal lives with little to no side effects from it.",
+		"g I want to study and recreate that material so that we can keep the sturdiness of Ancient Roman piping, but without the side effects that could manifest from it.",
+		"g That might be too ambitious of a goal, but I believe I can do it!",
+		"I admired Gala's determination - her desire to accomplish things despite setbacks, and her attitude towards life in general.",
+		"g Now we just need to- oh, wait, what?",
+		'show character g surp',
+		"g I just had your sign up sheet here, and now I lost it. Oh nooo....... this is the worst...",
+		'hide character g with fadeOut',
+		"Gala frantically began to search around the room, flipping over books and chairs to find my sign up sheet, which I never even gave her in the first place. It was still in my outstretched arm.",
+		"p Uh, it's right here.",
+		'show character g surp with fadeIn',
+		"g Oh! Thank goodness! You're a lifesaver.",
+		'show character g normal',
+		"p I uh, never actually gave it to you. I filled it out and before I could hand it to you you started talking about Rome.",
+		'show character g pout',
+		"g Awww, you tricked me? And here I was thinking that I was at fault...",
+		"p I'm sorry...",
+		'show character g normal',
+		"g Haha! No worries. It's my fault entirely. Like I said yesterday, I'm just a little dense. I can't really pick up on social cues that easily, nor can I remember how to walk around school.",
+		"g I'm also really bad at studying... like you saw yesterday.",
+		"g But anyways! Let's go get your sheet to the Student Affairs office so you can officially be registered. I'll take you there.",
+		'show scene #000000 with fadeIn duration 1 s',
+		'wait 1000',
+		'show scene outclub with fadeIn',
+		'show character g normal with fadeIn',
+		"While we walked to the S.A office, we talked about our childhood.",
+		"g So, {{player.name}}, did you ever get into an accident before?",
+		"p What do you mean by that?",
+		"g Just like, any accident. Tripped, fell, broke a bone, whatever.",
+
+		{'Choice':{
+			'Yes':{
+			'Text': 'Yeah.',
+			'Do': "g Wow, really? Me too!",
+
+		},
+		'No':{
+		
+			'Text': 'No, never.',
+			'Do': "g Oh, then I have a story for you!"
+		},
+			
+		},
+		},
+
+		"g I once fell into a mine shaft!",
+		"p You did what now?",
+		"g So when Bizzie and I were kids, we used to play near the mines near our houses. We were told to never go into the mines, but one day I got really really curious.",
+		"g Bizzie didn't want to go in with me and she left all of the sudden, so I went into the mines by myself.",
+		"g That's when I tripped on a rock and fell into the mineshaft!",
+		"g It wasn't that bad, it was only 30 feet.",
+		"p You lived through a 30 foot drop?",
+		"g Yeah, is that bad?",
+		"I didn't know what kind of miraculous bone density she had. What was she made of?",
+		"g I don't think I was hurt, but I did start crying because I got scared. It was dark and lonely and I didn't know where I was.",
+		"g That's when a little boy popped up next to me. He really gave me a fright! He asked me if I was lost and helped me find the way out.",
+		"g Apparently, he was a frequent explorer of the mines and helped discover a lot of cool new elements. The elements were named after the town we lived in, too.",
+		"g After he helped me out, I never saw him again. Even after returning countless of times since then, I've never been able to meet him. No one seemed to remember him, too. He told me his name once but I'm forgetting that too.",
+		"g I really wish we could learn to appreciate the things that other people do for us. Back then, I was just a scared little girl, but after, I don't remember saying thank you to him.",
+		"g It sucked, because I think I was starting to have a crush on him too.",
+		"In the middle of the story, I remembered that Gala and Bizzie were childhood friends, now turned one-sided enemies? The relationship was complicated.",
+		"p So why does Bizzie call you Lala?",
+		'show character g surp',
+		"g Oh? You were able to talk to Bizzie yesterday?",
+		'show character g normal',
+		"g Wow, you really are amazing, aren't you?",
+		"g I don't remember when she started calling me 'Lala', but I know it's because it had something to do with 'who I really was', whatever that meant.",
+		"g I've long forgotten the reason.",
+		"A wistful look appeared in Gala's eyes. Maybe talking about her childhood made her miss the fun times.",
+		"g Wanna know a cool fact?",
+		"p Sure.",
+		"g After I fell in the mines, my parents took me to the hospital to check for injuries.",
+		"p Did you have any?",
+		"g I don't know. The doctors didn't, either.",
+		"p What? Didn't they have x-ray machines?",
+		"g Yeah, but it was really complicated. From what I can remember, it was almost like the xrays couldn't get to me, or something.",
+		"g The pictures kept showing up uncompleted.",
+		"g I felt fine anyways though, so they just let me go after a few hours.",
+		"g It's crazy though. Whenever I think about why I'm here today, I just remember the fact that I was saved by a little boy in the mineshaft. I could've died so many times that day!",
+		"Gala's life really was an interesting story. I felt like I got to know her a lot today.",
+		"Maybe this would help me get closer with her.",
+		'hide character g with fadeOut duration 1000',
+		'show scene #000000 with fadeIn duration 1000',
+		'wait 1000',
+		'show scene club with fadeIn',
+		"After turning in the form, we completed a few more errands before returning back to the club room.",
+		'show character g emb with fadeIn',
+		"g Geez, that was longer than I thought. I'm tired.",
+		'show character g normal',
+		"g So, {{player.name}} thanks for joining!",
+		"g I'm really happy that you've decided to join the History club, but I gotta ask.",
+		"g Why did you decide to join? I feel like there are tons of other clubs that are more exciting than History.",
+		'jump galaChoice',
+	],
+
+	'galaChoice':[
+		"p Well, it's because",
+		
+		
+		{'Choice':{
+			'Am':{
+			'Text': 'You are an amazing person, and I wanted to get to know you better.',
+			'Do': 'jump gconfess',
+
+		},
+		'His':{
+		
+			'Text': 'History is amazing!',
+			'Do': "g Wow, really? I'm so glad you enjoy it!"
+		},
+			
+		},
+		},
+		"p Not just History. I think that you're an amazing person too.",
+		'jump gconfess',
+	],
+
+	'gconfess':[
+
+		
+		'show character g surp',
+		"g -!",
+		"p I, uh, really think you're a great person. I would love to spend more time with you.",
 
 		{'Conditional': {
 			'Condition': function(){
@@ -831,19 +993,48 @@ monogatari.script ({
 
 	],
 	'galaRouteReject':[
+		'show character g normal',
 
-		'show scene #000000 with fadeIn',
+		"g I'm... really sorry, but I just see you as a friend.",
+		"g I'm glad that you joined, and I really am grateful for the kind words, but I don't want to mislead you.",
+		"g I hope I didn't hurt your feelings... it's just that I'm still kind of in love with the person that saved me.",
+		"g I hope you understand.",
+		"p Oh... I get it.",
+		"It was a quick, brutal rejection. The room was awkward for a bit, before I excused myself back to the dorms.",
+	
+
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
+		'wait 3000',
 		'jump choicescene'
 
 	],
 	'galaRouteLove':[
+		'show character g surp',
+		"g I... I don't know what to say...",
+		"g Wait... Carl... Carl... Carl!",
+		"g You were the one who saved me that day!",
+		"p Yeah. It's been a while.",
+		"g Why didn't you say anything!",
+		'show character g normal',
+		"p Well... it's been a while, I guess?",
+		"Somewhere in the deep recesses on my memory, I remembered a small girl with silver and gold hair, just like Gala.",
+		"I held her hand as we made our way out the mineshaft that I knew like the back of my hand.",
+		"As the sun's light peeked through the entrance of an opening, I turned around and saw Gala's face in the light.",
+		"The locks of gold hair reflected the orange rays perfectly. She shined brighter than anyone else in the world that day.",
+		"That was my last day in the mines. I had already accomplished what I needed to do there in Ytterby, and my family moved somewhere else to continue exploring and charting new elements.",
+		"The day I moved out, I wanted to see her one last time, but I couldn't find her at all.",
+		"Until now.",
+		"g Of course I'll spend more time with you! After all, I owe you my life, basically.",
+		"My efforts to getting to know Gala had paid off. I spent the rest of the day with Gala in the room, talking about Roman History and plumbing.",
 
 		function(){
 			monogatari.storage().gala = true;
 		},
-		'show scene #000000 with fadeIn',
+		'show message Gala',
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
+		'wait 3000',
 		'jump choicescene'
 
 	],
@@ -899,8 +1090,9 @@ monogatari.script ({
 	'bizzieReject':[
 
 
-		'show scene #000000 with fadeIn',
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
+		'wait 3000',
 		'jump choicescene'
 	],
 
@@ -909,8 +1101,10 @@ monogatari.script ({
 		function(){
 			monogatari.storage().bizzie = true;
 		},
-		'show scene #000000 with fadeIn',
+		'show message Bizzie',
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
+		'wait 3000',
 		'jump choicescene'
 
 
@@ -933,9 +1127,17 @@ monogatari.script ({
 		'clear',
 		'play music school loop',
 		
-		
-		
-		
+		'show scene outclub with fadeIn',
+		"After school the next day I stood outside Club Room 194. The plaque outside the door said 'Dentistry Club - Room 194 - President: Cinny'.",
+		"I gently opened the door...",
+		'show scene club with fadeIn',
+		"And no one was there.",
+		"Strange, this was the denstistry club, wasn't it?",
+		"Where was Cinny?",
+		"Grabbing the Club Registration form in my hand, I realized I knew exactly where she would be at a time like this.",
+		"Before I left though, I decided that filling in the form here would be a lot easier than doing it where Cinny was.",
+		"I started with my name...",
+				
 		{'Input': {
 			'Text': 'My name is...',
 			'Validation': (input) => {
@@ -950,6 +1152,124 @@ monogatari.script ({
 			'Warning': 'You must enter a name!'
 		}},
 
+		"And.... done!",
+		"Finishing the form, I left the Dentistry Club room to the courtyard.",
+		'show scene #000000 with fadeIn',
+		'wait 1000',
+		'show scene schoolcourt with fadeIn',
+		"Cinny was exactly where I thought she would be, wandering around the courtyard.",
+		'show character c normal with fadeIn',
+		"p Hi!",
+		'show character c emb',
+		"c Eeeek!",
+		'show character c normal',
+		"c Oh, it's you. Hi there! What's that?",
+		"p My registration form for the Dentistry Club.",
+		'show character c emb',
+		"c Really? I'm so happy!",
+		'show character c normal',
+		"c I definitely will be the best club leader. I'm so glad you're gonna be with me.",
+		"c Here, let me give you my number so we can communicate better.",
+		"c It's 79.122623179251.",
+		"p Just out of curiousity, why dentistry out of all things?",
+		"c Oh? Well, both my parents were dentists, so it seemed natural for me to be interested in one.",
+		'show character c sigh',
+		"c As a child, I didn't really have any friends, so I spent a lot of my time with my parents in their clinic.",
+		"c You might have noticed already, but people don't tend to like being around me.",
+		"c I don't blame them. When they do, they tend to get sick.",
+		'show character c normal',
+		"c I'm just worried that it might happen to you to.",
+
+
+		{'Choice':{
+			'Nah':{
+			'Text': 'Nah. I took my vitamins this morning',
+			'Do': "c Hm... the only good vitamins are the gummy vitamins.",
+
+		},
+		'No':{
+		
+			'Text': 'Well, I was around you yesterday and I am still feeling fine',
+			'Do': "c That's true, I guess."
+		},
+			
+		},
+		},
+
+		'show character c sigh',
+
+		"c Still, though, you should just be careful a bit. I don't want anything bad happening to you.",
+		"I still thought about how people got sick around Cinny. Why was that the case? Nothing seemed off about her.",
+		"c When I was a child, I used to play with this one girl Alumy a lot. One day, she scratched herself on a rock and cut herself open. I helped clean her wound and bandage it up, and she went home healthy that night.",
+		"c The next day, though, her mom called to say that she wasn't going to let Alumy play with me anymore. Alumy got really really sick. From what I've heard, it was bad: her cut started getting really infected.",
+		"c She got better some time later, but her mom never let me near her again.",
+		"c I guess word got out because all of the sudden everyone started avoiding me.",
+		"c My parents couldn't do much about it, so they let me help them with their work.",
+		'show character c normal',
+		"c Recently, they were developing a way to help fill cavities. I've been helping them try to develop that method at school, but it's hard with only me in the club.",
+		"c That's why I'm really thankful that you're here too.",
+		"c We should go back to the club room so I can tell you about the things I've been working on.",
+		"I admired Cinny's perseverance through these troubles. Despite being rejected by those around her, she found purpose in a service that helped others. Despite being alone, she continued to work to support her parents. It was an amazing, beautiful thing.",
+		'hide character c with fadeOut',
+		'show scene #000000 with fadeIn',
+		'wait 1000',
+		'show scene club with fadeIn',
+		'show character c normal with fadeIn',
+		"p So what would you have specialized in if not for dentistry?",
+		"c Hmmm, that's a good question.",
+		"c Definitely nuclear chemistry.",
+		"c I've really been amazed by how we've been able to discover such tiny little nuclei floating in the atom. I'd really like to meet someone who does this kind of work one day.",
+		"c But anyways, here's all the work I have on cavity filling.",
+		"c They're called amalgams, and the way they work is simply by filling the hole with a mixture of super strong alloys.",
+		"c But sometimes they might not be able to stick to teeth, so we have to apply a mixture of Zinc-phosphate...",
+		"Cinny spoke eagerly and passionately about her work. The shyness and reservedness melted away like a phase change from liquid to solid.",
+		"As we cleaned up the room, she continued to talk about the various specifics of amalgam based reactions. It was fun listening to Cinny talk. The words flowed out of her mouth so fluidly. You would never have guessed that she was a shy person from this conversation.",
+		'hide character c',
+		'show scene #000000 with fadeIn',
+		'show scene club with fadeIn',
+		'show character c normal with fadeIn',
+		"c Whew! That was a lot of cleaning! We still have some more work to do though... but before that,",
+		"c You've been looking at me the entire time.",
+		'show character c emb',
+		"c It's a little embarassing...",
+		"c It looks like you have something you want to tell me.",
+		'jump cinnyChoice',
+	],
+
+	'cinnyChoice':[
+		"p Look, Cinny, the truth is,",
+		
+		
+		{'Choice':{
+			'L':{
+			'Text': 'I like you.',
+			'Do': 'jump cinnyConfess',
+
+		},
+		'Hair':{
+		
+			'Text': 'I really like your hair.',
+			'Do': "c Oh, really? Well, thanks."
+		},
+			
+		},
+		},
+		"p And you, too.",
+		'jump cinnyConfess',
+	],
+
+
+
+
+
+
+	'cinnyConfess':[
+		
+		'show character c emb',
+		"c ...",
+		"c ...I-",
+
+		
 		{'Conditional': {
 			'Condition': function(){
 				if(monogatari.storage().player.name == 'Ernest Rutherford') {
@@ -968,18 +1288,38 @@ monogatari.script ({
 
 
 	'sinny':[
+		"c I-I'm definitely not the type of person you'd want to date. I mean, who'd want to spend more time with me?",
+		"p Me. Don't discount yourself, Cinny. You're an amazing person.",
+		"c ...",
+		"Cinny was speechless. As the light caught her hair, her red, flowing locks almost matched the color of her face.",
+		"c ...",
+		"Cinny was quiet for a long time, before her voice came out in a small whisper.",
+		'show character c normal',
+		"c ...I'll be in your care.",
+		"My efforts to getting to know Cinny had paid off. I spent the time cleaning the room with Cinny, laughing at jokes together and talking about teeth.",
+
 		function(){
 			monogatari.storage().cinny = true;
 		},
-		'show scene #000000 with fadeIn',
+		'show message Cinny',
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
-		'jump choicescene'
+		'wait 3000',
+		'jump choicescene',
 	],
 
 	'nonny':[
-		'show scene #000000 with fadeIn',
+		"c I-I'm sorry. I...",
+		"c I don't think I can really handle that right now.",
+		"c I'm really sorry. It's just I'm not ready for these kinds of things, and I think we'd be much better if we just stayed like this.",
+		"p No... I get it.",
+		'hide character c with fadeOut',
+		"We cleaned the rest of the room in silence. When it was time to go, Cinny left the room in a hurry, leaving me alone with my thoughts.",
+
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
-		'jump choicescene',
+		'wait 3000',
+		'jump choicescene',,
 	],
 //get it because it's in spanish I will literally cry
 
@@ -992,7 +1332,7 @@ monogatari.script ({
 	'thaliaRoute' :[
 		'clear',
 		'play music school loop',
-		
+		'show scene ',
 		
 		
 		{'Input': {
@@ -1033,14 +1373,15 @@ monogatari.script ({
 		function(){
 			monogatari.storage().thalia = true;
 		},
-		'show scene #000000 with fadeIn',
+		'show message Thalia',
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
 		'jump choicescene',
 
 	],
 	
 	'ratno':[
-		'show scene #000000 with fadeIn',
+		'show scene #000000 with fadeIn duration 1000',
 		'stop music',
 		'jump choicescene',
 	],
@@ -1071,9 +1412,55 @@ monogatari.script ({
 	'end': [
 		"And so time flew by, seemingly without a trace. Before I knew it, we had walked across the stage and received our diplomas.",
 		"My time at Shiwa Academy had come to a close",
-
-
-
+		'play music grad loop',
+		'show scene atschool with fadeIn',
+		"Half a year ago, I stood outside these gates with no idea on what I wanted to do in life.",
+		"I was lost, scared, and alone.",
+		"Well, I am still a little bit scared. Maybe just a little bit lost too. But at least in the end...",
+		'show character g normal with fadeIn',
+		"g Heya! Congrats on your graduation!",
+		"y You too!",
+		"g Wow, it's really been 6 months, hasn't it? I remember being your tour guide, too. Fun times!",
+		"y Yeah, except for the time you didn't even show up to meet me here.",
+		'show character g pout',
+		"g Hmph, don't remind me about that. That was embarassing.",
+		"g Hey, so anyway, Bizzie and I are going to get some polish done. Wanna meet us at the mall nearby?",
+		'show character g normal left',
+		'show character b normal right',
+		"b Come oonnnnn Lala, you've been taking forever. Are we going or not?",
+		'show character g emb left',
+		"g Sorry! Yeah, let's get going!",
+		'show character b smile right',
+		"b No, don't apologize. And yeah, you should totally meet us there.",
+		"b We're gonna go on ahead now. See you there!",
+		'hide character g with fadeOut',
+		'hide character b with fadeOut',
+		"Gala and Bizzie headed into the distance, chatting with each other and laughing as they walked off.",
+		"I couldn't believe that they went so many years without talking to each other, back to being good friends.",
+		"There was a tug at my shoulder behind me.",
+		'show character c normal with fadeIn',
+		"c Hey, congrats on graduating.",
+		"y Yeah, you too! I heard you got into med school, right?",
+		"c Yeah. I'm going to pursue my goal of being a dentist. Thanks for everything.",
+		"c We'll definitely keep in touch after grad. Maybe you'll even visit my clinic one day! Though I hope it's only for checkups, because if you have a cavity I will be really dissapointed in you.",
+		"c Anyways, I'm gonna go now. I have to prepare to fly over to my new school soon. I'll definitely call you later, ok?",
+		'hide character c with fadeOut',
+		"With that, Cinny left the school grounds. I was amazed by how open she was now, from her usual reserved and shy self. I realized I wasn't the only one that changed this last half year.",
+		'show character th normal',
+		"th Hey Gooner! You have a silly smile on your face!",
+		"And of course, there were some people that never would change, but for the better, of course.",
+		"y Well, yeah. I'm seeing my friends off and we all just graduated. I'm a little happy.",
+		"th Damn right you are! It's celebration time! The RK Club is gonna have a massive party later. You should come!",
+		"th Anyways, I gotta head back home because word on the street is that a new rat family found a home in the neighbor's attic and they've been scaring the kids!",
+		"th I gotta bounce. See ya!",
+		'hide character th with fadeOut',
+		"With that, Thalia ran off in her usual, energetic self.",
+		"I turned back to look at Shiwa Academy one last time. It was a wonderful 6 months here. I wouldn't trade these memories for anything.",
+		"I learned a lot about myself, about others, and I made such good friends.",
+		"So many questions I didn't know the answer to - about things in general, about my life,",
+		"I found so many answers here.",
+		"These days were the happiest in my life.",
+		"After a long look at the trees swaying in the gentle wind, I turned around to head back home.",
 
 
 		'show scene #000000 with fadeIn',
@@ -1090,7 +1477,7 @@ monogatari.script ({
 		"Think about the people you've met today. The ones whose lives you changed.",
 		"The ones you had to learn about and pursue.",
 		"There's something in common with them all, right?",
-		"And there's something in common with them, as well as the name you were given in the end, right?",
+		"And there's something in common with them, as well as the clues you were given, right?",
 		"You know the answer already, you were just too afraid to look it in the eye.",
 		"And that's not a good way to approach life!",
 		"As you go through life, the might current of society is bound to get in your way and there will certainly be times that things don't go as you'd hoped.",
@@ -1102,6 +1489,9 @@ monogatari.script ({
 		"Spend some time and get to know it!",
 		"Always know that you have yourself to rely on.",
 		"Always know that you have a gem within.",
+		'show scene #FFFFFF with fadeIn',
+		'stop music',
+		'centered Thank you for playing! Enjoy the rest of the hunt!',
 		'end',	
 
 	],
